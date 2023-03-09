@@ -1,0 +1,6 @@
+<ng-container *ngFor="let match of results">
+    <mark *ngIf="match===searchString else noMatch">{{match}}</mark>
+    <ng-template #noMatch>
+        {{match}}
+    </ng-template>
+</ng-container>

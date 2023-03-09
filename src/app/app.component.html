@@ -1,13 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      col1
-      <courses></courses>
-      <app-login></app-login>
-    </div>
-    <div class="col-6">
-      col2
-      <button (click)="sum(3,'text',true)">Click</button>
-    </div>
-  </div>
+<!-- <app-courses></app-courses> -->
+<app-header></app-header>
+<div *ngIf="!ProductId; else singleProduct">
+  <app-product (productDetail)="assignData($event)"></app-product>
 </div>
+<div>
+  <ng-template #singleProduct>
+    <app-single-product (removeValue)="assignData($event)" [id]="ProductId"></app-single-product>
+  </ng-template>
+</div>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+
