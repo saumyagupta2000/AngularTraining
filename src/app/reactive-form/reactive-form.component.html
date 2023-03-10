@@ -1,0 +1,78 @@
+<p>templatedriven works!</p>
+<div class="container">
+  <form [formGroup]="userForm">
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        [class.is-invalid]="f['name'].invalid && f['name'].touched"
+      />
+      <!--  -->
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" class="form-control" formControlName="age" />
+      <!-- <small class="text-danger" [class.d-none]="age.valid || age.untouched">age is required </small> -->
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email" />
+      <!-- {{email.errors | json}} -->
+      <!-- <div *ngIf="email.errors">
+        <small class="text-danger" *ngIf="email.errors['required']">email is required </small>
+        <small class="text-danger" *ngIf="email.errors['pattern']">email is not valid format</small>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label>PhoneNumber</label>
+      <input
+        required
+        type="text"
+        class="form-control"
+        formControlName="phoneNumber"
+      />
+      <!-- <small class="text-danger" [class.d-none]="PhoneNumber.valid || PhoneNumber.untouched">Phone Number is required </small> -->
+    </div>
+    <!-- <div formGroupName="address">
+      <div class="form-group">
+        <label>City</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          formControlName="city"
+        /> -->
+        <!-- <small class="text-danger" [class.d-none]="PhoneNumber.valid || PhoneNumber.untouched">Phone Number is required </small> -->
+      <!-- </div> -->
+      <!-- <div class="form-group">
+        <label>State</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          formControlName="state"
+        /> -->
+        <!-- <small class="text-danger" [class.d-none]="PhoneNumber.valid || PhoneNumber.untouched">Phone Number is required </small> -->
+      <!-- </div> -->
+      <!-- <div class="form-group">
+        <label>Country</label>
+        <input
+          required
+          type="text"
+          class="form-control"
+          formControlName="country"
+        /> -->
+        <!-- <small class="text-danger" [class.d-none]="PhoneNumber.valid || PhoneNumber.untouched">Phone Number is required </small> -->
+      <!-- </div> -->
+    <!-- </div> -->
+    <button type="submit" (click)="btnSubmit()" class="btn btn-primary">
+      Submit
+    </button>
+
+    <button type="submit" (click)="btnLoadApiData()" class="btn btn-primary">
+      Load Api
+    </button>
+  </form>
+</div>

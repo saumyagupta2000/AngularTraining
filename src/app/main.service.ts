@@ -4,11 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MainService {
+  constructor() {}
+  
+    getCourses(){
+      return ['c', 'c++', 'java']
+    }
 
-  constructor() { }
-  getCourse = () => {
-    return['course'];
-  }
+    setaddress(){
+      return{
+      "city": "Damn",
+      "state": "Damn",
+      "country": "India"
+      }
+    }
 }
 
 //ng g s <service name>

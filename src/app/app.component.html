@@ -1,5 +1,5 @@
 <!-- <app-courses></app-courses> -->
-<app-header></app-header>
+<!-- <app-header></app-header>
 <div *ngIf="!ProductId; else singleProduct">
   <app-product (productDetail)="assignData($event)"></app-product>
 </div>
@@ -9,5 +9,22 @@
   </ng-template>
 </div>
 <router-outlet></router-outlet>
+<app-footer></app-footer> -->
+
+<ng-template #singleProduct>
+  </ng-template>
+<app-header></app-header>
+<div class="container min-body">
+  <ng-container *ngIf="!loggedin;else homeScreen">
+    <app-login (isloggedin)="checkloginstatus($event)"></app-login>
+  </ng-container>
+  <ng-template #homeScreen>
+    <div class="container-fluid">
+      <main role="main" class="container">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </ng-template>
+</div>
 <app-footer></app-footer>
 

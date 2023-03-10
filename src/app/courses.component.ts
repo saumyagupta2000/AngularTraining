@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MainService } from './main.service';
 
 @Component({
@@ -19,8 +20,11 @@ export class CoursesComponent{
     attrdir : any = "Angular course";
     val= 10;
 
-    constructor(_service: MainService){           //Dependency Injection
-        console.log(_service.getCourse())
+    constructor(_serive: MainService, private aroute:ActivatedRoute) {
+      // let course = new MainService(1);
+      //console.log('course', _serive.getCourses());
+      console.log('this.aroute', this.aroute);
+      this.aroute.queryParams.subscribe((data)=>console.log(data));
     }
     items: any[] = [
         { name: 'One', val:1 },

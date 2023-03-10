@@ -27,6 +27,7 @@ export class AppComponent {
   title:string = 'angular-app';         //modifire annotations
   diection = Direction;
   answer = Answer;
+  loggedin : boolean = false;
   products = [
     {
       title:'Product 1',
@@ -54,12 +55,17 @@ export class AppComponent {
       //Typescript
     })
   }
+  count: any;
+  childHide: boolean | undefined;
 
   constructor(){                                //constructor
     console.log(this.title);
     console.log(this.sum(2,'',true));
     console.log(this.diection.left)
     console.log(this.answer.no)
+    if (localStorage.getItem('token') != null) {
+      this.loggedin=true;
+    }
   }
 
   ProductId:any = null
@@ -74,4 +80,23 @@ export class AppComponent {
     //this.ProductId = event;
     this.ProductId = event;
   }
+  navbarCollapsed = true;
+
+  toggleNavbarCollapsing() {
+    this.navbarCollapsed = !this.navbarCollapsed;
+  }
+  incrFun() {
+    this.count++;
+  }
+  decrFun() {
+    this.count--;
+  }
+
+  hdChild() {
+    this.childHide = !this.childHide;
+  }
+
+  checkloginstatus(event:any){
+    this.loggedin=event;
+}
 }
